@@ -1,0 +1,5 @@
+awscli
+aws-mfa
+aws-shell
+boto
+boto3
