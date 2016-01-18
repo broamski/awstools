@@ -1,5 +1,5 @@
 awscli
-aws-mfa
+aws-mfa==0.0.5
 aws-shell
 boto
 boto3
