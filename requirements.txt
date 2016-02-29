@@ -1,5 +1,5 @@
-awscli
+awscli==1.10.8
 aws-mfa==0.0.5
-aws-shell
-boto
-boto3
+aws-shell==0.1.0
+boto==2.39.0
+boto3==1.2.5
