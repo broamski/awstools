@@ -10,6 +10,8 @@ RUN apt-get update -y && \
     groupadd -g 666 worker && \
     useradd -m -g 666 -s /bin/bash -g worker worker
 
+ADD utils /home/worker/utils
+
 USER worker
 WORKDIR /home/worker
 CMD ["/bin/bash"]
