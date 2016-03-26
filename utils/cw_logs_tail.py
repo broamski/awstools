@@ -23,8 +23,9 @@ events = client.get_log_events(
     logGroupName=log_group_name,
     logStreamName=t['logStreams'][0]['logStreamName']
 )
-newlist = sorted(events['events'], key=lambda k: k['timestamp'], reverse=True)
-start_time = newlist[0]['timestamp']
+sorted_events = sorted(
+    events['events'], key=lambda k: k['timestamp'], reverse=True)
+start_time = sorted_events[0]['timestamp']
 
 while True:
     t = client.describe_log_streams(
@@ -42,7 +43,7 @@ while True:
     for event in events['events']:
         print event['message'].strip()
     if len(events['events']) > 0:
-        newlist = sorted(
+        sorted_events = sorted(
             events['events'], key=lambda k: k['timestamp'], reverse=True)
-        start_time = newlist[0]['timestamp'] + 1
+        start_time = sorted_events[0]['timestamp'] + 1
     time.sleep(5)
