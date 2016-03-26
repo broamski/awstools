@@ -7,6 +7,9 @@ parser.add_argument('--log-group-name', required=True,
                     help="Name of the CloudWatch Logs Log Group")
 parser.add_argument('--region', required=True, default='us-east-1',
                     help="Name of the AWS Region which to connect")
+parser.add_argument('--loop-pause', type=int, default=5,
+                    help="Amount of time, in seconds, which to pause between "
+                    "polling periods")
 args = parser.parse_args()
 
 client = boto3.client('logs', region_name=args.region)
@@ -46,4 +49,4 @@ while True:
         sorted_events = sorted(
             events['events'], key=lambda k: k['timestamp'], reverse=True)
         start_time = sorted_events[0]['timestamp'] + 1
-    time.sleep(5)
+    time.sleep(args.loop_pause)
