@@ -5,9 +5,11 @@ import time
 parser = argparse.ArgumentParser()
 parser.add_argument('--log-group-name', required=True,
                     help="Name of the CloudWatch Logs Log Group")
+parser.add_argument('--region', required=True, default='us-east-1',
+                    help="Name of the AWS Region which to connect")
 args = parser.parse_args()
 
-client = boto3.client('logs')
+client = boto3.client('logs', region_name=args.region)
 
 log_group_name = args.log_group_name
 
