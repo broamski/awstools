@@ -6,6 +6,7 @@
 
 ## Included Tools
 ```
+metaq.py - Query instances by tag data. Returns: instance id, Name tag, private and public IP addresses
 ecs\
     task_def_diff.py - Perform a visual diff of Elastic Container Service Task Definitions
 cloudwatch\
