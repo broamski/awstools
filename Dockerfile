@@ -1,4 +1,4 @@
-FROM python:2.7.11
+FROM python:2.7.12
 MAINTAINER "Brian Nuszkowski <nuszkowski@protonmail.com>"
 
 ADD requirements.txt /tmp/requirements.txt
